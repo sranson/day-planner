@@ -17,20 +17,20 @@ body {
     background-color: transparent;
     color: black;
     border-radius: 0;
-    border-bottom: 10px solid black;
+    border-bottom: 2px solid black;
   }
   
-  /* .description{
+  .description{
     white-space: pre-wrap;
   } */
   
-  /* .time-block{
+  .time-block{
     text-align: center;
     border-radius: 15px;
-  } */
+  }
   
   .row {
-    margin-top: 5%;
+    margin-top: 3%;
     white-space: pre-wrap;
     height: 80px;
     border-top: 1px solid white;
@@ -69,4 +69,4 @@ body {
     font-size: 20px;
     transition: all .3s ease-in-out;
   }
-   */
+  
