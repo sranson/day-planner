@@ -1,5 +1,10 @@
+var buttons = $('button');
 
 
+$(buttons).click(function(e) {
+    clickedBtn = e.target.id;
+    console.log(clickedBtn);
+})
 
 // store all save buttons in a variable of some sort
 
