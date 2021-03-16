@@ -1,15 +1,54 @@
+// store all save buttons in a variable of some sort
 var buttons = $('button');
 
 
-$(buttons).click(function(e) {
-    clickedBtn = e.target.id;
-    console.log(clickedBtn);
-})
-
-// store all save buttons in a variable of some sort
 
 // add an event listener to this variable so that when a button is clicked, I can get
 // the id of the button that was clicked
+$(buttons).click(function(e) {
+    clickedBtn = e.target.id;
+    console.log(clickedBtn);
+    selectCard();
+})
+
+// create a variable that easily links the targeted button to the corresponding card
+function selectCard() {
+   switch(clickedBtn) {
+        case 'saveBtn1':
+            console.log('Add text to 8am'); 
+            break;
+        case 'saveBtn2':
+            console.log('Add text to 9am');
+            break;
+        case 'saveBtn3':
+            console.log('Add text to 10am');
+            break;
+        case 'saveBtn4':
+            console.log('Add text to 11am');
+            break;
+        case 'saveBtn5':
+            console.log('Add text tp 12pm');
+            break;
+        case 'saveBtn6':
+            console.log('Add text to 1pm');
+            break;
+        case 'saveBtn7':
+            console.log('Add text to 2pm');
+            break;
+        case 'saveBtn8':
+            console.log('Add text to 3pm');
+            break;
+        case 'saveBtn9':
+            console.log('Add text to 4pm');
+            break;
+        case 'saveBtn10':
+            console.log('Add text to 5pm');
+            break;
+   }
+}
+
+
+
 
 // when I know what button was clicked, I can add the text from that card to localStorage
 
