@@ -1,4 +1,5 @@
 // store all save buttons in a variable of some sort
+var date = document.getElementById('date');
 var buttons = $('button');
 var card8 = $('card8');
 var card9 = $('card9');
@@ -21,12 +22,18 @@ var text3 = document.getElementById('text3');
 var text4 = document.getElementById('text4');
 var text5 = document.getElementById('text5');
 
-
+showDate();
 
 $(buttons).click(function(e) {
     clickedBtn = e.target.id;
     saveText();
 })
+
+
+function showDate() {
+    currentDate = moment().format('dddd MMMM Do YYYY');
+    date.innerHTML = currentDate;            
+}
 
 
 // When the user clicks "save", create a variable that easily links the targeted save button to the corresponding card
