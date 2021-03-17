@@ -1,20 +1,25 @@
 // store all save buttons in a variable of some sort
 var buttons = $('button');
-var card8am = $('card8am');
-var card9am = $('card9am');
-var card10am = $('card10am');
-var card11am = $('card11am');
-var card12pm = $('card12pm');
-var card1pm = $('card1pm');
-var card2pm = $('card2pm');
-var card3pm = $('card3pm');
-var card4pm = $('card4pm');
-var card5pm = $('card5pm');
-
-
-// add something (input?) so that the user can put text in the card body
-//When the user clicks "save" call the selectCard function
-
+var card8 = $('card8');
+var card9 = $('card9');
+var card10 = $('card10');
+var card11 = $('card11');
+var card12 = $('card12');
+var card1 = $('card1');
+var card2 = $('card2');
+var card3 = $('card3');
+var card4 = $('card4');
+var card5 = $('card5');
+var text8 = document.getElementById('text8');
+var text9 = document.getElementById('text9');
+var text10 = document.getElementById('text10');
+var text11 = document.getElementById('text11');
+var text12 = document.getElementById('text12');
+var text1 = document.getElementById('text1');
+var text2 = document.getElementById('text2');
+var text3 = document.getElementById('text3');
+var text4 = document.getElementById('text4');
+var text5 = document.getElementById('text5');
 
 
 
@@ -24,61 +29,58 @@ $(buttons).click(function(e) {
 })
 
 
-// create a variable that easily links the targeted button to the corresponding card
+// When the user clicks "save", create a variable that easily links the targeted save button to the corresponding card
 function saveText() {
 
      saveButton = "";
         switch(clickedBtn) {
             case 'saveBtn1':
-                console.log('Add text to 8am'); 
-                saveButton= "card8am";
+                saveButton= "card8";
                 break;
             case 'saveBtn2':
-                console.log('Add text to 9am');
-                saveButton= "card9am";
+                saveButton= "card9";
                 break;
             case 'saveBtn3':
-                console.log('Add text to 10am');
-                saveButton= "card10am";
+                saveButton= "card10";
                 break;
             case 'saveBtn4':
-                console.log('Add text to 11am');
-                saveButton= "card11m";
+                saveButton= "card11";
                 break;
             case 'saveBtn5':
-                console.log('Add text tp 12pm');
-                saveButton= "card12pm";
+                saveButton= "card12";
                 break;
             case 'saveBtn6':
-                console.log('Add text to 1pm');
-                saveButton= "card1pm";
+                saveButton= "card1";
                 break;
             case 'saveBtn7':
-                console.log('Add text to 2pm');
-                saveButton= "card2pm";
+                saveButton= "card2";
                 break;
             case 'saveBtn8':
-                console.log('Add text to 3pm');
-                saveButton= "card3pm";
+                saveButton= "card3";
                 break;
             case 'saveBtn9':
-                console.log('Add text to 4pm');
-                saveButton= "card4pm";
+                saveButton= "card4";
                 break;
             case 'saveBtn10':
-                console.log('Add text to 5pm');
-                saveButton= "card5pm";
+                saveButton= "card5";
                 break;
     }
-    console.log(saveButton);
+    console.log(saveButton);                    // This shows me which card corresponds to the clicked save button
     updateCard();
 }
 
+
 function updateCard() {
-    if (saveButton === 'card8am') {
-        // store the input data in a variable
-        // push the variable to localStorage
-    }
+    if (saveButton === 'card8') { text8 = text8.value; console.log(text8); localStorage.setItem('8am', text8);}
+    if (saveButton === 'card9') { text9 = text9.value; console.log(text9); localStorage.setItem('9am', text9);}
+    if (saveButton === 'card10') { text10 = text10.value; console.log(text10); localStorage.setItem('10am', text10);}
+    if (saveButton === 'card11') { text11 = text11.value; console.log(text11); localStorage.setItem('11am', text11);}
+    if (saveButton === 'card12') { text12 = text12.value; console.log(text12); localStorage.setItem('12pm', text12);}
+    if (saveButton === 'card1') { text1 = text1.value; console.log(text1); localStorage.setItem('1pm', text1);}
+    if (saveButton === 'card2') { text2 = text2.value; console.log(text2); localStorage.setItem('2pm', text2);}
+    if (saveButton === 'card3') { text3 = text3.value; console.log(text3); localStorage.setItem('3pm', text3);}
+    if (saveButton === 'card4') { text4 = text4.value; console.log(text4); localStorage.setItem('4pm', text4);}
+    if (saveButton === 'card5') { text5 = text5.value; console.log(text5); localStorage.setItem('5pm', text5);}
 }
 
 
