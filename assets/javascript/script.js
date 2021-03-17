@@ -21,6 +21,16 @@ var text2 = document.getElementById('text2');
 var text3 = document.getElementById('text3');
 var text4 = document.getElementById('text4');
 var text5 = document.getElementById('text5');
+var localT8 = document.getElementById('localText8')
+var localT9 = document.getElementById('localText9')
+var localT10 = document.getElementById('localText10')
+var localT11 = document.getElementById('localText11')
+var localT12 = document.getElementById('localText12')
+var localT1 = document.getElementById('localText1')
+var localT2 = document.getElementById('localText2')
+var localT3 = document.getElementById('localText3')
+var localT4 = document.getElementById('localText4')
+var localT5 = document.getElementById('localText5')
 
 showDate();
 
@@ -28,6 +38,7 @@ $(buttons).click(function(e) {
     clickedBtn = e.target.id;
     saveText();
 })
+
 
 
 function showDate() {
@@ -43,6 +54,7 @@ function saveText() {
         switch(clickedBtn) {
             case 'saveBtn1':
                 saveButton= "card8";
+                
                 break;
             case 'saveBtn2':
                 saveButton= "card9";
@@ -78,18 +90,67 @@ function saveText() {
 
 
 function updateCard() {
-    if (saveButton === 'card8') { text8 = text8.value; console.log(text8); localStorage.setItem('8am', text8);}
-    if (saveButton === 'card9') { text9 = text9.value; console.log(text9); localStorage.setItem('9am', text9);}
-    if (saveButton === 'card10') { text10 = text10.value; console.log(text10); localStorage.setItem('10am', text10);}
-    if (saveButton === 'card11') { text11 = text11.value; console.log(text11); localStorage.setItem('11am', text11);}
-    if (saveButton === 'card12') { text12 = text12.value; console.log(text12); localStorage.setItem('12pm', text12);}
-    if (saveButton === 'card1') { text1 = text1.value; console.log(text1); localStorage.setItem('1pm', text1);}
-    if (saveButton === 'card2') { text2 = text2.value; console.log(text2); localStorage.setItem('2pm', text2);}
-    if (saveButton === 'card3') { text3 = text3.value; console.log(text3); localStorage.setItem('3pm', text3);}
-    if (saveButton === 'card4') { text4 = text4.value; console.log(text4); localStorage.setItem('4pm', text4);}
-    if (saveButton === 'card5') { text5 = text5.value; console.log(text5); localStorage.setItem('5pm', text5);}
+    if (saveButton === 'card8') { text8 = text8.value; localStorage.setItem('8am', text8);}
+    if (saveButton === 'card9') { text9 = text9.value; localStorage.setItem('9am', text9);}
+    if (saveButton === 'card10') { text10 = text10.value; localStorage.setItem('10am', text10);}
+    if (saveButton === 'card11') { text11 = text11.value; localStorage.setItem('11am', text11);}
+    if (saveButton === 'card12') { text12 = text12.value; localStorage.setItem('12pm', text12);}
+    if (saveButton === 'card1') { text1 = text1.value; localStorage.setItem('1pm', text1);}
+    if (saveButton === 'card2') { text2 = text2.value; localStorage.setItem('2pm', text2);}
+    if (saveButton === 'card3') { text3 = text3.value; localStorage.setItem('3pm', text3);}
+    if (saveButton === 'card4') { text4 = text4.value; localStorage.setItem('4pm', text4);}
+    if (saveButton === 'card5') { text5 = text5.value; localStorage.setItem('5pm', text5);}
 }
 
+
+
+
+localText8 = localStorage.getItem('8am')
+localT8.textContent = localText8;
+if (localText8 !== null) {$(text8).remove();}
+
+
+localText9 = localStorage.getItem('9am');
+localT9.textContent = localText9;
+if (localText9 !== null) {$(text9).remove();}
+
+localText10 = localStorage.getItem('10am');
+localT10.textContent = localText10;
+if (localText10 !== null) {$(text10).remove();}
+
+localText11 = localStorage.getItem('11am');
+localT11.textContent = localText11;
+if (localText11 !== null) {$(text11).remove();}
+
+localText12 = localStorage.getItem('12pm');
+localT12.textContent = localText12;
+if (localText12 !== null) {$(text12).remove();}
+
+localText1 = localStorage.getItem('1pm');
+localT1.textContent = localText1;
+if (localText1 !== null) {$(text1).remove();}
+
+localText2 = localStorage.getItem('2pm');
+localT2.textContent = localText2;
+if (localText2 !== null) {$(text2).remove();}
+
+localText3 = localStorage.getItem('3pm');
+localT3.textContent = localText3;
+if (localText3 !== null) {$(text3).remove();}
+
+localText4 = localStorage.getItem('4pm');
+localT4.textContent = localText4;
+if (localText4 !== null) {$(text4).remove();}
+
+localText5 = localStorage.getItem('5pm');
+localT5.textContent = localText5;
+if (localText5 !== null) {$(text5).remove();}
+
+
+
+
+
+    
 
 
 
