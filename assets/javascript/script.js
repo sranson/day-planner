@@ -31,6 +31,16 @@ var localT2 = document.getElementById('localText2')
 var localT3 = document.getElementById('localText3')
 var localT4 = document.getElementById('localText4')
 var localT5 = document.getElementById('localText5')
+var p8 = document.getElementById('elP8');
+var p9 = document.getElementById('elP9');
+var p10 = document.getElementById('elP10');
+var p11 = document.getElementById('elP11');
+var p12 = document.getElementById('elP12');
+var p13 = document.getElementById('elP13');
+var p14 = document.getElementById('elP14');
+var p15 = document.getElementById('elP15');
+var p16 = document.getElementById('elP16');
+
 
 showDate();
 
@@ -39,6 +49,12 @@ $(buttons).click(function(e) {
     saveText();
 })
 
+checkTime();
+
+function checkTime() {
+    now = moment().format('LT');
+    //console.log(now);
+}
 
 
 function showDate() {
@@ -148,20 +164,55 @@ if (localText5 !== null) {$(text5).remove();}
 
 
 
+var currentHour = moment().hour();
+console.log("Current Hour: " +currentHour);
+//currentHour === currentHour       => true
 
 
-    
+
+
+p8.setAttribute('data-hour', 8);
+myp8 = p8.getAttribute('data-hour');
+
+p9.setAttribute('data-hour', 9); 
+myp9 = p9.getAttribute('data-hour');
+
+p10.setAttribute('data-hour', 10);
+myp10 = p10.getAttribute('data-hour');
+
+p11.setAttribute('data-hour', 11);
+myp11 = p11.getAttribute('data-hour');
+
+p12.setAttribute('data-hour', 12);
+myp12 = p12.getAttribute('data-hour');
+
+p13.setAttribute('data-hour', 13);
+myp13 = p13.getAttribute('data-hour');
+
+p14.setAttribute('data-hour', 14);
+myp14 = p14.getAttribute('data-hour');
+
+p15.setAttribute('data-hour', 15);
+myp15 = p15.getAttribute('data-hour');
+
+p16.setAttribute('data-hour', 16);
+myp16 = p16.getAttribute('data-hour');
+
+hoursArray = [myp8, myp9, myp10, myp11, myp12, myp13, myp14, myp15, myp16];
+
+function colorCode() {
+    for (i=0; i < hoursArray.length; i++) {
+        if (hoursArray[i] < currentHour) {
+            // If a time block is in the past, make it [grey]
+        } else if (hoursArray[i] > currentHour) {
+            //If a time block is in the future, make it [green]
+        } else {
+            // If a time block is the current time, make it [red]
+        }
+    }
+}
+
+colorCode();
 
 
 
-
-
-// Once the data from localStorage is stored in a variable, I can add this to the DOM
-// NOTE: I have to figure out how to keep this info in the DOM even when the page is refreshed
-
-
-// If a time block is in the past, make it [color]
-
-// If a time block is the current time, make it [color]
-
-// if the time block is in the future, make it [color]
