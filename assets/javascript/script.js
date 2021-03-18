@@ -70,7 +70,6 @@ function saveText() {
         switch(clickedBtn) {
             case 'saveBtn1':
                 saveButton= "card8";
-                
                 break;
             case 'saveBtn2':
                 saveButton= "card9";
@@ -199,20 +198,19 @@ p16.setAttribute('data-hour', 16);
 myp16 = p16.getAttribute('data-hour');
 
 hoursArray = [myp8, myp9, myp10, myp11, myp12, myp13, myp14, myp15, myp16];
+cardArray = [card8, card9, card10, card11, card12, card1, card2, card3, card4, card5]
 
-function colorCode() {
+function colorCode(cardArray) {
     for (i=0; i < hoursArray.length; i++) {
         if (hoursArray[i] < currentHour) {
             // If a time block is in the past, make it [grey]
+            
         } else if (hoursArray[i] > currentHour) {
             //If a time block is in the future, make it [green]
         } else {
-            // If a time block is the current time, make it [red]
+            //If a time block is in the present, make it [red]
         }
     }
 }
 
 colorCode();
-
-
-
