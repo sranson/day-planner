@@ -1,6 +1,10 @@
 // store all save buttons in a variable of some sort
 var date = document.getElementById('date');
 var buttons = $('button');
+
+// These are the div elements that contain cards that house the text inputs
+//=========================================================================
+/*
 var card8 = $('card8');
 var card9 = $('card9');
 var card10 = $('card10');
@@ -11,6 +15,11 @@ var card2 = $('card2');
 var card3 = $('card3');
 var card4 = $('card4');
 var card5 = $('card5');
+*/
+//=========================================================================
+
+//These are the TEXT INPUT ids  
+//=========================================================================
 var text8 = document.getElementById('text8');
 var text9 = document.getElementById('text9');
 var text10 = document.getElementById('text10');
@@ -21,6 +30,10 @@ var text2 = document.getElementById('text2');
 var text3 = document.getElementById('text3');
 var text4 = document.getElementById('text4');
 var text5 = document.getElementById('text5');
+//=========================================================================
+
+// These are the <p> ELEMENT ids that render the text to the screen from LocalStorage
+//=========================================================================
 var localT8 = document.getElementById('localText8')
 var localT9 = document.getElementById('localText9')
 var localT10 = document.getElementById('localText10')
@@ -31,6 +44,11 @@ var localT2 = document.getElementById('localText2')
 var localT3 = document.getElementById('localText3')
 var localT4 = document.getElementById('localText4')
 var localT5 = document.getElementById('localText5')
+//=========================================================================
+
+
+//These are the ids for the <p> elements that show the hours
+//=========================================================================
 var p8 = document.getElementById('elP8');
 var p9 = document.getElementById('elP9');
 var p10 = document.getElementById('elP10');
@@ -40,13 +58,13 @@ var p13 = document.getElementById('elP13');
 var p14 = document.getElementById('elP14');
 var p15 = document.getElementById('elP15');
 var p16 = document.getElementById('elP16');
-
+//=========================================================================
 
 showDate();
 
 $(buttons).click(function(e) {
     clickedBtn = e.target.id;
-    saveText();
+    saveText(e.target.id);
 })
 
 checkTime();
@@ -63,103 +81,60 @@ function showDate() {
 }
 
 
-// When the user clicks "save", create a variable that easily links the targeted save button to the corresponding card
+
+
+// When the user clicks "save", the input text value is saved to localStorage
 function saveText() {
 
      saveButton = "";
         switch(clickedBtn) {
             case 'saveBtn1':
                 saveButton= "card8";
+                localStorage.setItem('8am', text8.value);
                 break;
             case 'saveBtn2':
                 saveButton= "card9";
+                localStorage.setItem('9am', text9.value);
                 break;
             case 'saveBtn3':
                 saveButton= "card10";
+                localStorage.setItem('10am', text10.value);
                 break;
             case 'saveBtn4':
                 saveButton= "card11";
+                localStorage.setItem('11am', text11.value);
                 break;
             case 'saveBtn5':
                 saveButton= "card12";
+                localStorage.setItem('12pm', text12.value);
                 break;
             case 'saveBtn6':
                 saveButton= "card1";
+                localStorage.setItem('1pm', text1.value);
                 break;
             case 'saveBtn7':
                 saveButton= "card2";
+                localStorage.setItem('2pm', text2.value);
                 break;
             case 'saveBtn8':
                 saveButton= "card3";
+                localStorage.setItem('3pm', text3.value);
                 break;
             case 'saveBtn9':
                 saveButton= "card4";
+                localStorage.setItem('4pm', text4.value);
                 break;
             case 'saveBtn10':
                 saveButton= "card5";
+                localStorage.setItem('5pm', text5.value);
                 break;
     }
-    console.log(saveButton);                    // This shows me which card corresponds to the clicked save button
-    updateCard();
+    console.log(saveButton);                   
 }
 
 
-function updateCard() {
-    if (saveButton === 'card8') { text8 = text8.value; localStorage.setItem('8am', text8);}
-    if (saveButton === 'card9') { text9 = text9.value; localStorage.setItem('9am', text9);}
-    if (saveButton === 'card10') { text10 = text10.value; localStorage.setItem('10am', text10);}
-    if (saveButton === 'card11') { text11 = text11.value; localStorage.setItem('11am', text11);}
-    if (saveButton === 'card12') { text12 = text12.value; localStorage.setItem('12pm', text12);}
-    if (saveButton === 'card1') { text1 = text1.value; localStorage.setItem('1pm', text1);}
-    if (saveButton === 'card2') { text2 = text2.value; localStorage.setItem('2pm', text2);}
-    if (saveButton === 'card3') { text3 = text3.value; localStorage.setItem('3pm', text3);}
-    if (saveButton === 'card4') { text4 = text4.value; localStorage.setItem('4pm', text4);}
-    if (saveButton === 'card5') { text5 = text5.value; localStorage.setItem('5pm', text5);}
-}
+// if the page is refreshed, create a loop that iterates through localStorage and appends the data to the text input
 
-
-
-
-localText8 = localStorage.getItem('8am')
-localT8.textContent = localText8;
-if (localText8 !== null) {$(text8).remove();}
-
-
-localText9 = localStorage.getItem('9am');
-localT9.textContent = localText9;
-if (localText9 !== null) {$(text9).remove();}
-
-localText10 = localStorage.getItem('10am');
-localT10.textContent = localText10;
-if (localText10 !== null) {$(text10).remove();}
-
-localText11 = localStorage.getItem('11am');
-localT11.textContent = localText11;
-if (localText11 !== null) {$(text11).remove();}
-
-localText12 = localStorage.getItem('12pm');
-localT12.textContent = localText12;
-if (localText12 !== null) {$(text12).remove();}
-
-localText1 = localStorage.getItem('1pm');
-localT1.textContent = localText1;
-if (localText1 !== null) {$(text1).remove();}
-
-localText2 = localStorage.getItem('2pm');
-localT2.textContent = localText2;
-if (localText2 !== null) {$(text2).remove();}
-
-localText3 = localStorage.getItem('3pm');
-localT3.textContent = localText3;
-if (localText3 !== null) {$(text3).remove();}
-
-localText4 = localStorage.getItem('4pm');
-localT4.textContent = localText4;
-if (localText4 !== null) {$(text4).remove();}
-
-localText5 = localStorage.getItem('5pm');
-localT5.textContent = localText5;
-if (localText5 !== null) {$(text5).remove();}
 
 
 
