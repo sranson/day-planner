@@ -85,8 +85,7 @@ function saveText() {
                 localStorage.setItem('5pm', text5.value);
                 break;
     }
-    console.log(saveButton);  
-    removeStuff();       
+    console.log(saveButton);       
 }
 
 let localStorageData = {};
@@ -137,52 +136,48 @@ myp17 = p5.getAttribute('data-hour');
 
 
 
-/*
+
 var currentHour = moment().hour();
 console.log("Current Hour: " +currentHour);
 //currentHour === currentHour       => true
-*/
-
-var currentHour = 10;
-console.log("Current Hour: " +currentHour);
 
 
-hourAndCards = {
-    myp8: 'card8',
-    myp9: 'card9',
-}
 
 
-hoursArray = [myp8, myp9, myp10, myp11, myp12, myp13, myp14, myp15, myp16, myp17];
-cardsArray = [card8, card9, card10, card11, card12, card1, card2, card3, card4, card5];
+const pastHours = [];
+const currentHours = [];
+const futureHours = [];
+
+
+const hoursArray = [myp8, myp9, myp10, myp11, myp12, myp13, myp14, myp15, myp16, myp17];
+const cardsArray = [card1,card2,card3,card4,card5,card8,card9,card10, card11, card12 ];
 
 function colorCode() {
     for (i=0; i < hoursArray.length; i++) {
         if (hoursArray[i] < currentHour) {
-            //future, make it [gray]
-            console.log(`Hour ${hoursArray[i]}: This is hour is in the past`);
+             pastHours.push(hoursArray[i]);
+             pastHours.forEach(addPast);
         } else if (hoursArray[i] > currentHour) {
-            //Future, make it [green]
-            console.log(`Hour ${hoursArray[i]}: This is hour is in the future`);
+            futureHours.push(hoursArray[i]);
+            futureHours.forEach(addFuture);
         } else if (hoursArray[i] == currentHour) {
             // Present, make it [red]
-            console.log(`Hour ${hoursArray[i]}: This is the present hour`);
+            currentHours.push(hoursArray[i]);
+            currentHours.forEach(addPresent);
         }
     }
 }
 
 colorCode();
 
+function addPast() {
+    document.getElementById('card'+hoursArray[i]).classList.add('past');
+}
 
-/*
-            document.getElementById('card8').classList.add('past'); 
-            document.getElementById('card9').classList.add('past'); 
-            document.getElementById('card10').classList.add('past'); 
-            document.getElementById('card11').classList.add('past'); 
-            document.getElementById('card12').classList.add('past'); 
-            document.getElementById('card1').classList.add('past'); 
-            document.getElementById('card2').classList.add('past'); 
-            document.getElementById('card3').classList.add('past'); 
-            document.getElementById('card4').classList.add('past'); 
-            document.getElementById('card5').classList.add('past'); 
-*/
+function addFuture() {
+    document.getElementById('card'+hoursArray[i]).classList.add('future');
+}
+
+function addPresent() {
+    document.getElementById('card'+hoursArray[i]).classList.add('present');
+}
