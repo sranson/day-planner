@@ -2,8 +2,6 @@
 var date = document.getElementById('date');
 var buttons = $('button');
 
-// These are the div elements that contain cards that house the text inputs
-//=========================================================================
 
 var card8 = $('card8');
 var card9 = $('card9');
@@ -16,29 +14,17 @@ var card3 = $('card3');
 var card4 = $('card4');
 var card5 = $('card5');
 
-//=========================================================================
-
-//These are the ids for the <p> elements that show the hours
-//=========================================================================
-var p8 = document.getElementById('elP8');
-var p9 = document.getElementById('elP9');
-var p10 = document.getElementById('elP10');
-var p11 = document.getElementById('elP11');
-var p12 = document.getElementById('elP12');
-var p13 = document.getElementById('elP13');
-var p14 = document.getElementById('elP14');
-var p15 = document.getElementById('elP15');
-var p16 = document.getElementById('elP16');
-//=========================================================================
 
 showDate();
+checkTime();
+
 
 $(buttons).click(function(e) {
     clickedBtn = e.target.id;
     saveText(e.target.id);
 })
 
-checkTime();
+
 
 function checkTime() {
     now = moment().format('LT');
@@ -138,55 +124,65 @@ function showData() {
 showData(localStorageData);
 
 
+myp8 = p8.getAttribute('data-hour');
+myp9 = p9.getAttribute('data-hour');
+myp10 = p10.getAttribute('data-hour');
+myp11 = p11.getAttribute('data-hour');
+myp12 = p12.getAttribute('data-hour');
+myp13 = p1.getAttribute('data-hour');
+myp14 = p2.getAttribute('data-hour');
+myp15 = p3.getAttribute('data-hour');
+myp16 = p4.getAttribute('data-hour');
+myp17 = p5.getAttribute('data-hour');
 
+
+
+/*
 var currentHour = moment().hour();
 console.log("Current Hour: " +currentHour);
 //currentHour === currentHour       => true
+*/
+
+var currentHour = 10;
+console.log("Current Hour: " +currentHour);
 
 
+hourAndCards = {
+    myp8: 'card8',
+    myp9: 'card9',
+}
 
 
-p8.setAttribute('data-hour', 8);
-myp8 = p8.getAttribute('data-hour');
+hoursArray = [myp8, myp9, myp10, myp11, myp12, myp13, myp14, myp15, myp16, myp17];
+cardsArray = [card8, card9, card10, card11, card12, card1, card2, card3, card4, card5];
 
-p9.setAttribute('data-hour', 9); 
-myp9 = p9.getAttribute('data-hour');
-
-p10.setAttribute('data-hour', 10);
-myp10 = p10.getAttribute('data-hour');
-
-p11.setAttribute('data-hour', 11);
-myp11 = p11.getAttribute('data-hour');
-
-p12.setAttribute('data-hour', 12);
-myp12 = p12.getAttribute('data-hour');
-
-p13.setAttribute('data-hour', 13);
-myp13 = p13.getAttribute('data-hour');
-
-p14.setAttribute('data-hour', 14);
-myp14 = p14.getAttribute('data-hour');
-
-p15.setAttribute('data-hour', 15);
-myp15 = p15.getAttribute('data-hour');
-
-p16.setAttribute('data-hour', 16);
-myp16 = p16.getAttribute('data-hour');
-
-hoursArray = [myp8, myp9, myp10, myp11, myp12, myp13, myp14, myp15, myp16];
-
-
-function colorCode(cardArray) {
+function colorCode() {
     for (i=0; i < hoursArray.length; i++) {
         if (hoursArray[i] < currentHour) {
-            // If a time block is in the past, make it [grey]
-            
+            //future, make it [gray]
+            console.log(`Hour ${hoursArray[i]}: This is hour is in the past`);
         } else if (hoursArray[i] > currentHour) {
-            //If a time block is in the future, make it [green]
-        } else {
-            //If a time block is in the present, make it [red]
+            //Future, make it [green]
+            console.log(`Hour ${hoursArray[i]}: This is hour is in the future`);
+        } else if (hoursArray[i] == currentHour) {
+            // Present, make it [red]
+            console.log(`Hour ${hoursArray[i]}: This is the present hour`);
         }
     }
 }
 
 colorCode();
+
+
+/*
+            document.getElementById('card8').classList.add('past'); 
+            document.getElementById('card9').classList.add('past'); 
+            document.getElementById('card10').classList.add('past'); 
+            document.getElementById('card11').classList.add('past'); 
+            document.getElementById('card12').classList.add('past'); 
+            document.getElementById('card1').classList.add('past'); 
+            document.getElementById('card2').classList.add('past'); 
+            document.getElementById('card3').classList.add('past'); 
+            document.getElementById('card4').classList.add('past'); 
+            document.getElementById('card5').classList.add('past'); 
+*/
