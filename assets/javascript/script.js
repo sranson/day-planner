@@ -4,7 +4,7 @@ var buttons = $('button');
 
 // These are the div elements that contain cards that house the text inputs
 //=========================================================================
-/*
+
 var card8 = $('card8');
 var card9 = $('card9');
 var card10 = $('card10');
@@ -15,37 +15,8 @@ var card2 = $('card2');
 var card3 = $('card3');
 var card4 = $('card4');
 var card5 = $('card5');
-*/
-//=========================================================================
 
-//These are the TEXT INPUT ids  
 //=========================================================================
-var text8 = document.getElementById('text8');
-var text9 = document.getElementById('text9');
-var text10 = document.getElementById('text10');
-var text11 = document.getElementById('text11');
-var text12 = document.getElementById('text12');
-var text1 = document.getElementById('text1');
-var text2 = document.getElementById('text2');
-var text3 = document.getElementById('text3');
-var text4 = document.getElementById('text4');
-var text5 = document.getElementById('text5');
-//=========================================================================
-
-// These are the <p> ELEMENT ids that render the text to the screen from LocalStorage
-//=========================================================================
-var localT8 = document.getElementById('localText8')
-var localT9 = document.getElementById('localText9')
-var localT10 = document.getElementById('localText10')
-var localT11 = document.getElementById('localText11')
-var localT12 = document.getElementById('localText12')
-var localT1 = document.getElementById('localText1')
-var localT2 = document.getElementById('localText2')
-var localT3 = document.getElementById('localText3')
-var localT4 = document.getElementById('localText4')
-var localT5 = document.getElementById('localText5')
-//=========================================================================
-
 
 //These are the ids for the <p> elements that show the hours
 //=========================================================================
@@ -79,7 +50,6 @@ function showDate() {
     currentDate = moment().format('dddd MMMM Do YYYY');
     date.innerHTML = currentDate;            
 }
-
 
 
 
@@ -129,12 +99,43 @@ function saveText() {
                 localStorage.setItem('5pm', text5.value);
                 break;
     }
-    console.log(saveButton);                   
+    console.log(saveButton);  
+    removeStuff();       
 }
 
+let localStorageData = {};
 
-// if the page is refreshed, create a loop that iterates through localStorage and appends the data to the text input
 
+function getDataFromLocalStorage() {
+    localStorageData.hr8 = (localStorage.getItem('8am'))
+    localStorageData.hr9 = (localStorage.getItem('9am'))
+    localStorageData.hr10 = (localStorage.getItem('10am'))
+    localStorageData.hr11 = (localStorage.getItem('11am'))
+    localStorageData.hr12 = (localStorage.getItem('12pm'))
+    localStorageData.hr1 = (localStorage.getItem('1pm'))
+    localStorageData.hr2 = (localStorage.getItem('2pm'))
+    localStorageData.hr3 = (localStorage.getItem('3pm'))
+    localStorageData.hr4 = (localStorage.getItem('4pm'))
+    localStorageData.hr5 = (localStorage.getItem('5pm'))
+}
+getDataFromLocalStorage();
+
+
+function showData() {
+    //console.log(localStorageData);  
+    if (localStorageData.hr8 !== null) {document.querySelector('.hr8').textContent = localStorage.getItem('8am');};
+    if (localStorageData.hr9 !== null) {document.querySelector('.hr9').textContent = localStorage.getItem('9am');}
+    if (localStorageData.hr10 !== null) {document.querySelector('.hr10').textContent = localStorage.getItem('10am');}
+    if (localStorageData.hr11 !== null) {document.querySelector('.hr11').textContent = localStorage.getItem('11am');}
+    if (localStorageData.hr12 !== null) {document.querySelector('.hr12').textContent = localStorage.getItem('12pm');}
+    if (localStorageData.hr1 !== null) {document.querySelector('.hr1').textContent = localStorage.getItem('1pm');}
+    if (localStorageData.hr2 !== null) {document.querySelector('.hr2').textContent = localStorage.getItem('2pm');}
+    if (localStorageData.hr3 !== null) {document.querySelector('.hr3').textContent = localStorage.getItem('3pm');}
+    if (localStorageData.hr4 !== null) {document.querySelector('.hr4').textContent = localStorage.getItem('4pm');}
+    if (localStorageData.hr5 !== null) {document.querySelector('.hr5').textContent = localStorage.getItem('5pm');}
+    
+}
+showData(localStorageData);
 
 
 
@@ -173,7 +174,7 @@ p16.setAttribute('data-hour', 16);
 myp16 = p16.getAttribute('data-hour');
 
 hoursArray = [myp8, myp9, myp10, myp11, myp12, myp13, myp14, myp15, myp16];
-cardArray = [card8, card9, card10, card11, card12, card1, card2, card3, card4, card5]
+
 
 function colorCode(cardArray) {
     for (i=0; i < hoursArray.length; i++) {
