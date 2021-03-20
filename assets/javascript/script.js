@@ -123,6 +123,7 @@ function showData() {
 showData(localStorageData);
 
 
+
 myp8 = p8.getAttribute('data-hour');
 myp9 = p9.getAttribute('data-hour');
 myp10 = p10.getAttribute('data-hour');
@@ -133,8 +134,6 @@ myp14 = p2.getAttribute('data-hour');
 myp15 = p3.getAttribute('data-hour');
 myp16 = p4.getAttribute('data-hour');
 myp17 = p5.getAttribute('data-hour');
-
-
 
 
 var currentHour = moment().hour();
@@ -150,7 +149,7 @@ const futureHours = [];
 
 
 const hoursArray = [myp8, myp9, myp10, myp11, myp12, myp13, myp14, myp15, myp16, myp17];
-const cardsArray = [card1,card2,card3,card4,card5,card8,card9,card10, card11, card12 ];
+
 
 function colorCode() {
     for (i=0; i < hoursArray.length; i++) {
