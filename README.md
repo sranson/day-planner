@@ -1,12 +1,14 @@
 # Day Planner
 
-For this assignment I was tasked with creating a daily scheduling tool for standard business hours. The current Date is displayed at the top. Time blocks are color coded to indicate whether an hours is in the past, present, or future. Once the "save" button is clicked, data is stored locally and persists on page refresh.  
+This program serves as a daily scheduling tool for standard business hours. The current Date is displayed at the top. Time blocks are color coded to indicate whether an hours is in the past, present, or future. Once the "save" button is clicked, data is stored locally and persists on page refresh.  
 
 ## I practiced the following:
-1. Array iteration with forEach()
-2. Targeting events for multiple elements using event.target
-3. Additional practice storing and getting data from local storage
-4. Day/Time formatting using Momentjs
+1. HTML
+2. CSS
+3. Bootstrap
+4. jQuery
+5. Local Storage
+6. Momentjs
 
 
 ## Screenshots
